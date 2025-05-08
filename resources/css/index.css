@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: hsl(220, 55%, 13%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: hsl(220, 55%, 13%);
+    color: white;
+    border-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.login-btn {
+    background: transparent;
+    border: none;
+    color: #00ffaa;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.content {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.apply-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #00ffaa;
+    border: 1px solid #00ffaa;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+    background-color: rgba(0, 255, 170, 0.1);
+}
+
+.apply-btn span {
+    margin-left: 10px;
+}
