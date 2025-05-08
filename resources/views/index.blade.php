@@ -10,12 +10,13 @@
     <div class="container">
         <div class="card">
             <div class="header">
-                <a href="" class="login-btn">Iniciar Sesion</a>
+                <!-- Enlace para mostrar el archivo donde esta el formulario de login -->
+                <a href="{{ route('login') }}" class="login-btn">Iniciar Sesion</a>
             </div>
             
             <div class="content">
                 <h1 class="title">APM INVERSIONES ERL</h1>
-                <p class="subtitle">Programa de Seleccion de Practicantes</p>
+                <p class="subtitle">Programa de Selección de Practicantes</p>
             </div>
             
             <a href="" class="apply-btn">
