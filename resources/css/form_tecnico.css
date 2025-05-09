@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e6e6e6;
+    min-height: 100vh;
+}
+
+.header-title {
+    padding: 15px 20px;
+    background-color: transparent;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: hsl(220, 55%, 25%);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.divider {
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: hsl(220, 55%, 40%);
+}
+
+.checkbox-group {
+    margin-bottom: 15px;
+}
+
+.checkbox-item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
+    min-width: 100px;
+}
+
+.btn-primary {
+    background-color: #b1b8d6;
+    color: hsl(220, 55%, 25%);
+}
+
+.btn-primary:hover {
+    background-color: #9ba3c0;
+}
+
+.btn-secondary {
+    background-color: #b1b8d6;
+    color: hsl(220, 55%, 25%);
+}
+
+.btn-secondary:hover {
+    background-color: #9ba3c0;
+}

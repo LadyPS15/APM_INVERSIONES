@@ -14,7 +14,6 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 // Ruta para el dashboard del reclutador, protegida por autenticación
-
 Route::get('/reclutador/dashboard', function () {
     return view('reclutador.dashboard');
 })->middleware('auth')->name('reclutador.dashboard');

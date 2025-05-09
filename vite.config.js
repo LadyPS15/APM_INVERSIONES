@@ -10,6 +10,8 @@ export default defineConfig({
                 'resources/css/login.css',
                 'resources/css/dashboard.css',
                 'resources/css/form.css',
+                'resources/css/form_tecnico.css',
+                'resources/css/form_metodologia.css',
                 'resources/css/terms.css',
                 'resources/js/app.js'
             ],
