@@ -22,3 +22,8 @@ git pull # Trae y combina los cambios de la rama remota
 6. Combinar(merge) ramas
 git checkout main # Ve a la rama principal
 git merge rama1 # Combina rama1 con main
+
+# LOGIN
+1. Credenciales
+   Correo: wilber@example.com
+   Contraseña: admin1
