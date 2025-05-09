@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('educational_institutions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 100);
+            $table->string('address', 255)->nullable();
+            $table->date('agreement_date')->nullable();
+            $table->string('agreement_status', 20)->default('active');
+            $table->timestamps(); // created_at y updated_at
         });
     }
 

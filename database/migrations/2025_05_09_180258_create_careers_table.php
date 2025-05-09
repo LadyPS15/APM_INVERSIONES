@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 100);
+            $table->text('description')->nullable();
+            $table->timestamps(); // created_at y updated_at
         });
     }
 
