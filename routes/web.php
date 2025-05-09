@@ -5,7 +5,8 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
+
 
 // Rutas para el login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -22,3 +23,18 @@ Route::get('/reclutador/dashboard', function () {
 Route::get('/reclutador/credenciales', function () {
     return view('reclutador.credenciales');
 })->middleware('auth')->name('reclutador.credenciales');
+
+// Ruta para el logout
+
+
+// Ruta para los términos y condiciones
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
+
+Route::get('/form/formulario', function () {
+    return view('form.formulario');
+})->name('form.formulario');
+
+

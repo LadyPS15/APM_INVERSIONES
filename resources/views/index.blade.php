@@ -19,7 +19,7 @@
                 <p class="subtitle">Programa de Selección de Practicantes</p>
             </div>
             
-            <a href="" class="apply-btn">
+            <a href="{{ route('terms') }}" class="apply-btn">
                 Aplicar Ahora <span>&gt;</span>
             </a>
         </div>
