@@ -6,14 +6,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - Reclutador de Practicantes</title>
+    <title>Credenciales de Usuarios</title>
     @vite('resources/css/dashboard.css')
 </head>
 <body>
     <div class="sidebar">
         <h2>APM Inversiones ERL</h2>
-         <a href="#">Resultados</a>
-        <a href="{{ route('reclutador.credenciales') }}">Credenciales</a>
+        <a href="{{ route('reclutador.dashboard') }}">Resultados</a>
+        <a href="#">Credenciales</a>
         <a href="#">Mi Perfil</a>
     </div>
 
@@ -21,29 +21,26 @@
     {{ Auth::user()->name }}&nbsp;&nbsp;
     <div class="user-circle">
         {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
-    </div>
+        </div>
     </div>
 
     <div class="content">
-        <h3>Resultados de solicitud de practicantes</h3>
-        <p>Listado de los practicantes.</p>
+        <h3>Lista de Usuarios</h3>
         <table>
             <thead>
                 <tr>
-                    <th>Nombres</th>
-                    <th>Resultados</th>
+                    <th>Usuario</th>
+                    <th>Contraseña</th>
                     <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><br><small></small></td>
-                    <td><img src="https://i.postimg.cc/kXNydScx/img-ver.png" alt="ver" width="18"></td>
-                    <td>
-                        <button class="btn btn-blue">Aceptar</button>
-                        <button class="btn btn-red">Eliminar</button>
-                    </td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-red">Eliminar</button></td>
                 </tr>
+                
             </tbody>
         </table>
     </div>

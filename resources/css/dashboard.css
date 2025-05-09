@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f4f8;
+    color: #333;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #1e2a5a;
+    height: 100vh;
+    color: white;
+    position: fixed;
+    padding: 30px 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.sidebar a {
+    display: block;
+    margin-bottom: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: #ffc107;
+}
+
+.topbar {
+    background-color: #1e2a5a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 220px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-circle {
+    background-color: #3e4a70;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 40px 60px;
+}
+
+.content h3,
+.content p {
+    margin-left: 10px; /* Desplazar un poco el texto a la derecha */
+}
+
+h3 {
+    margin-bottom: 20px;
+    color: #1e2a5a;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto; 
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #444;
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+td small {
+    display: block;
+    color: #888;
+    font-size: 12px;
+}
+
+.btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn-blue {
+    background-color: #007bff;
+}
+
+.btn-blue:hover {
+    background-color: #0069d9;
+}
+
+.btn-red {
+    background-color: #dc3545;
+}
+
+.btn-red:hover {
+    background-color: #c82333;
+}
