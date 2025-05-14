@@ -44,5 +44,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    
+    }
+    public function reviewedApplications()
+    {
+        return $this->hasMany(Application::class, 'reviewer_id');
     }
 }
