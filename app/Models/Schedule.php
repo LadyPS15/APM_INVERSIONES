@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-Use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Careers extends Model
+class Schedule extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'description',
     ];
 
@@ -19,4 +18,3 @@ class Careers extends Model
         return $this->hasMany(Application::class);
     }
 }
-
