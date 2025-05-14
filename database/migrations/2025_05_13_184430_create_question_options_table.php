@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('question_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('question_id'); // Cambiado a unsignedBigInteger
             $table->text('option_text');
             $table->integer('points');
             $table->timestamps();
+
+            // Agregar la clave foránea después de definir la columna
+            $table->foreign('question_id')->references('id')->on('evaluation_questions')->onDelete('cascade');
         });
     }
 
