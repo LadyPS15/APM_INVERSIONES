@@ -27,3 +27,5 @@ git merge rama1 # Combina rama1 con main
 1. Credenciales
    Correo: wilber@example.com
    Contraseña: admin1
+
+   ya se creo la rama 1000 ernesto
