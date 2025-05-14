@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-Use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Careers extends Model
+class Specialization extends Model
 {
     use HasFactory;
 
@@ -17,6 +17,11 @@ class Careers extends Model
     public function applications()
     {
         return $this->hasMany(Application::class);
+    }
+
+    public function roleRequirements()
+    {
+        return $this->hasMany(RoleRequirement::class, 'preferred_specialization_id');
     }
 }
 
