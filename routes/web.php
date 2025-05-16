@@ -37,3 +37,35 @@ Route::get('/form/formulario', function () {
 })->name('form.formulario');
 
 
+// Rutas para la evaluación de scrum
+Route::get('/examscrum/evaluacion', function () {
+    return view('examscrum.evaluacion');
+});
+
+Route::get('/examscrum/evaluacion-parte2', function () {
+    return view('examscrum.evaluacion-parte2');
+});
+
+
+// Rutas para los resultados
+Route::get('/results/resultado_scrum', function () {
+    return view('results.resultado_scrum');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
