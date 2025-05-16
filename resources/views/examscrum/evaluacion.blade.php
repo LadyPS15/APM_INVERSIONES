@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APM INVERSIONES - Evaluación</title>
-    @vite('resources/css/form.css') {{-- Aquí puedes cambiar el CSS si tienes otro --}}
+    @vite('resources/css/evaluacion.css') {{-- Aquí puedes cambiar el CSS si tienes otro --}}
 </head>
 <body>
     <div class="container">
