@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APM INVERSIONES - Evaluación</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    @vite('resources/css/evaluacion.css')
+    @vite('resources/css/prueba.css')
 </head>
 <body>
     <div class="container">
