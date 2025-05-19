@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\SpecializationController;
+use App\Http\Controllers\CareersController;
 
 Route::get('/', function () {
     return view('index');
@@ -32,8 +35,16 @@ Route::get('/terms', function () {
 })->name('terms');
 
 
+//Ruta para el formulario de evaluación
 Route::get('/form/formulario', function () {
     return view('form.formulario');
 })->name('form.formulario');
 
+Route::post('/form/formulario', [ApplicantController::class, 'store'])
+->name('form.formulario.store');
+
+
+// Ruta para el formulario formulario_tecnico.blade.php  evaluación
+//Ruta para el formulario formulario_metodologia.blade.php  evaluación
+//Ruta para el formulario devaluacion(si es necesario)
 

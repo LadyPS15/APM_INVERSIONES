@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('resource_accesses', function (Blueprint $table) {
+       Schema::create('resource_accesses', function(Blueprint $table) {
             $table->id();
-            $table->foreignId('applicant_id')->constrained();
-            $table->foreignId('resource_id')->constrained('role_resources');
+            $table->foreignId('applicant_id')->constrained('applicants')->onDelete('cascade');
+            $table->foreignId('resource_id')->constrained('role_resources')->onDelete('restrict');
             $table->timestamp('access_date')->useCurrent();
         });
     }

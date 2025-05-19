@@ -14,23 +14,23 @@ class ScrumRole extends Model
         'description',
     ];
 
-    public function applicationsWithPreviousRole()
+    public function applicationsPreviousRole()
     {
         return $this->hasMany(Application::class, 'previous_role_id');
     }
 
-    public function applicationsWithAssignedRole()
+    public function applicationsAssignedRole()
     {
         return $this->hasMany(Application::class, 'assigned_role_id');
     }
 
-    public function resources()
+    public function roleRequirements()
     {
-        return $this->hasMany(RoleResource::class, 'role_id');
+        return $this->hasMany(RoleRequirement::class, 'role_id');
     }
 
-    public function requirements()
+    public function roleResources()
     {
-        return $this->hasOne(RoleRequirement::class, 'role_id');
+        return $this->hasMany(RoleResource::class, 'role_id');
     }
 }

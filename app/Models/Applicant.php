@@ -30,6 +30,12 @@ class Applicant extends Model
         return $this->morphMany(ActivityLog::class, 'user');
     }
 
+    //public function activityLogs()
+    //{
+    //    return $this->hasMany(ActivityLog::class, 'user_id')->where('user_type', 'applicant');
+    //}
+
+
     // Generar un token de acceso único para el solicitante
     public function generateAccessToken($academicCycle)
     {

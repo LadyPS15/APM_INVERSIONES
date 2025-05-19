@@ -23,7 +23,7 @@ class RoleRequirement extends Model
 
     public function role()
     {
-        return $this->belongsTo(ScrumRole::class);
+        return $this->belongsTo(ScrumRole::class, 'role_id');
     }
 
     public function preferredSpecialization()

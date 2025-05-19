@@ -80,11 +80,7 @@ class Application extends Model
             ->withPivot('proficiency_level');
     }
 
-    public function evaluationAnswers()
-    {
-        return $this->hasMany(EvaluationAnswer::class);
-    }
-
+    
     // Calcular las puntuaciones en función de las respuestas de la evaluación
     public function calculateScores()
     {

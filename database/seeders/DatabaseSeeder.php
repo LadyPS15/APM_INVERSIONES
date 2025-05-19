@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Careers;
+
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -13,6 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            CareersTableSeeder::class,
+            SpecializationSeeder::class,
+            ProgrammingLanguageSeeder::class,
+            ScheduleSeeder::class,
+            ScrumRoleSeeder::class,
+        ]);
+
+
         // User::factory(10)->create();
 
         User::factory()->create([

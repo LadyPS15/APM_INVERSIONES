@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scoring_configuration', function (Blueprint $table) {
+        Schema::create('scoring_configuration', function(Blueprint $table) {
             $table->id();
             $table->decimal('min_score_for_approval', 3, 1)->default(3.0);
             $table->string('role_assignment_algorithm', 50)->default('weighted_score');

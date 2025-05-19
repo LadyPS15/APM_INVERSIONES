@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role_requirements', function (Blueprint $table) {
+        Schema::create('role_requirements', function(Blueprint $table) {
             $table->id();
-            $table->foreignId('role_id')->constrained('scrum_roles');
+            $table->foreignId('role_id')->constrained('scrum_roles')->onDelete('cascade');
             $table->decimal('min_scrum_score', 3, 1);
             $table->decimal('min_general_score', 3, 1);
-            $table->foreignId('preferred_specialization_id')->nullable()->constrained('specializations');
+            $table->foreignId('preferred_specialization_id')->nullable()->constrained('specializations')->nullOnDelete();
             $table->timestamps();
         });
     }
