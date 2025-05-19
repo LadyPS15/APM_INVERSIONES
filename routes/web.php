@@ -42,8 +42,8 @@ Route::get('/evaluacion', function () {
     return view('examscrum.evaluacion');
 });
 
-Route::get('/evaluacion-parte2', function () {
-    return view('examscrum.evaluacion-parte2');
+Route::get('/evaluacion2', function () {
+    return view('examscrum.evaluacion2');
 });
 
 
