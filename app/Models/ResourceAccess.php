@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ResourceAccess extends Model
 {
-   use HasFactory;
+    use HasFactory;
 
     public $timestamps = false;
 
@@ -30,4 +30,16 @@ class ResourceAccess extends Model
     {
         return $this->belongsTo(RoleResource::class, 'resource_id');
     }
+
+    public function scopeForApplicant($query, int $applicantId)
+{
+    return $query->where('applicant_id', $applicantId);
+}
+
+public function scopeRecent($query)
+{
+    return $query->orderByDesc('access_date');
+}
+
+
 }

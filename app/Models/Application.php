@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Application extends Model
 {
-     use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'applicant_id',
@@ -94,19 +94,19 @@ class Application extends Model
             $generalScore = $generalAnswers->avg('points_earned');
             $this->general_score = round($generalScore, 1);
         }
-        
+
         // Calcular la puntuación específica de Scrum (promedio de las respuestas de la categoría de Scrum)
         $scrumAnswers = $this->evaluationAnswers()
             ->whereHas('question', function ($query) {
                 $query->where('category', 'Scrum');
             })
             ->get();
-            
+
         if ($scrumAnswers->count() > 0) {
             $scrumScore = $scrumAnswers->avg('points_earned');
             $this->scrum_score = round($scrumScore, 1);
         }
-        
+
         $this->save();
     }
 
@@ -115,32 +115,32 @@ class Application extends Model
     {
         // Obtener la configuración de puntuación
         $config = ScoringConfiguration::first();
-        
+
         // Si el solicitante no cumple con el puntaje mínimo para la aprobación, no le asigne un rol
         if ($this->general_score < $config->min_score_for_approval) {
             return null;
         }
-        
+
         // Obtenga todos los requisitos del rol
         $requirements = RoleRequirement::with('role')->get();
-        
+
         $bestRoleId = null;
         $bestScore = -1;
-        
+
         foreach ($requirements as $requirement) {
             // Verifique si el solicitante cumple con los requisitos mínimos para este puesto
-            if ($this->general_score >= $requirement->min_general_score && 
+            if ($this->general_score >= $requirement->min_general_score &&
                 $this->scrum_score >= $requirement->min_scrum_score) {
-                
+
                 // Calcular una puntuación ponderada para este rol
-                $score = ($this->scrum_score * $config->scrum_evaluation_weight) + 
+                $score = ($this->scrum_score * $config->scrum_evaluation_weight) +
                          ($this->general_score * $config->technical_evaluation_weight);
-                
+
                 //Añadir bono si el solicitante tiene la especialización preferida
                 if ($requirement->preferred_specialization_id == $this->specialization_id) {
                     $score += 1.0;
                 }
-                
+
                 // Seguimiento de la mejor coincidencia de roles
                 if ($score > $bestScore) {
                     $bestScore = $score;
@@ -148,10 +148,10 @@ class Application extends Model
                 }
             }
         }
-        
+
         $this->assigned_role_id = $bestRoleId;
         $this->save();
-        
+
         return $bestRoleId;
     }
 }

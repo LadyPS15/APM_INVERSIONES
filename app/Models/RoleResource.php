@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class RoleResource extends Model
 {
-   use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'role_id',

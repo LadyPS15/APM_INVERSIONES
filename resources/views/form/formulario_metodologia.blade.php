@@ -11,15 +11,15 @@
     <div class="header-title">
         Registro del Practicante- Información personal
     </div>
-    
+
     <div class="container">
         <div class="form-card">
             <h2>Experiencia en Metodología Agiles</h2>
             <div class="divider"></div>
-            
+
             <form action="#" method="POST">
                 @csrf
-                
+
                 <div class="form-group">
                     <label>¿Tienes experiencia en metodologías Scrum?</label>
                     <div class="radio-group">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label>Tiempo de experiencia</label>
                     <div class="radio-group">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="rol_principal">Rol principal desempeñado</label>
                     <select id="rol_principal" name="rol_principal" class="form-control">
@@ -67,12 +67,12 @@
                         <option value="otro">Otro</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="tipo_proyectos">¿En qué tipo de proyectos has aplicado metodologías Scrum?</label>
                     <textarea id="tipo_proyectos" name="tipo_proyectos" class="form-control" rows="4"></textarea>
                 </div>
-                
+
                 <div class="buttons-container">
                     <button type="submit" class="btn btn-primary">Enviar Registro</button>
                 </div>

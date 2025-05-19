@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('evaluation_questions', function (Blueprint $table) {
-            $table->id();
+            $table->id(); //PRIMARY KEY
             $table->text('question');
             $table->string('category', 50);
-            $table->timestamps();
+            $table->timestamps(); // created_at y updated_at
         });
 
     }
