@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APM INVERSIONES - Evaluación</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    @vite('resources/css/prueba.css')
+    @vite('resources/css/eva_oficial.css')
 </head>
 <body>
     <div class="container">
@@ -110,7 +110,7 @@
 
                 <div class="buttons">
                     <button type="button" class="btn btn-secondary" onclick="history.back()">Atrás</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='/evaluacion-parte2'">Continuar</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/evaluacion2'">Continuar</button>
                 </div>
             </form>
         </div>
