@@ -142,6 +142,7 @@ class Application extends Model
                     $bestScore = $score;
                     $bestRoleId = $requirement->role_id;
                 }
+                
             }
         }
         
