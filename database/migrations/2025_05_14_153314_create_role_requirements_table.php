@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('role_id')->constrained('scrum_roles')->onDelete('cascade');
             $table->decimal('min_scrum_score', 3, 1);
             $table->decimal('min_general_score', 3, 1);
-            $table->foreignId('preferred_specialization_id')->nullable()->constrained('specializations')->nullOnDelete();
+            $table->foreignId('preferred_specialization_id')->nullable()->constrained('specializations');
             $table->timestamps();
         });
     }

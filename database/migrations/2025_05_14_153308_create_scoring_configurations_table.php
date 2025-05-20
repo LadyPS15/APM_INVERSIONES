@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('role_assignment_algorithm', 50)->default('weighted_score');
             $table->decimal('scrum_evaluation_weight', 3, 1)->default(0.6);
             $table->decimal('technical_evaluation_weight', 3, 1)->default(0.4);
-            $table->timestamps();
+            $table->timestamps(); // created_at y updated_at
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scoring_configurations');
+        Schema::dropIfExists('scoring_configuration');
     }
 };
