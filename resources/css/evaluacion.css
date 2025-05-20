@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: left;
+    border-bottom: 2px solid #e0e6ed;
+    padding-bottom: 10px;
+}
+
+.divider {
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 25px;
+}
+
+.question, .form-group {
+    margin-bottom: 30px;
+}
+
+.question h3, .form-group label {
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.form-group > label {
+    display: block;
+}
+
+.checkbox-option, .checkbox-item {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.checkbox-option label,
+.checkbox-item label,
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.checkbox-option input[type="checkbox"],
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: #5a6cf0;
+}
+
+.checkbox-group {
+    margin-left: 0;
+}
+
+.buttons, .buttons-container {
+    display: flex;
+    margin-top: 40px;
+}
+
+.buttons {
+    justify-content: space-between;
+}
+
+.buttons-container {
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: #f1f3f4;
+    color: #2c3e50;
+    border: 1px solid #d0d7de;
+}
+
+.btn-secondary:hover {
+    background-color: #e8ebec;
+}
+
+.btn-primary {
+    background-color: #5a6cf0;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #4c5ce6;
+}

@@ -48,3 +48,35 @@ Route::post('/form/formulario', [ApplicantController::class, 'store'])
 //Ruta para el formulario formulario_metodologia.blade.php  evaluación
 //Ruta para el formulario devaluacion(si es necesario)
 
+// Rutas para la evaluación de scrum
+Route::get('/evaluacion', function () {
+    return view('examscrum.evaluacion');
+});
+
+Route::get('/evaluacion2', function () {
+    return view('examscrum.evaluacion2');
+});
+
+
+// Rutas para los resultados
+Route::get('/resultado_scrum', function () {
+    return view('results.resultado_scrum');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
