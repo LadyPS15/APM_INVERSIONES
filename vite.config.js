@@ -15,6 +15,8 @@ export default defineConfig({
                 'resources/css/form_metodologia.css',
                 'resources/css/terms.css',
                 'resources/css/eva_oficial.css',
+                'resources/css/resultagen.css',
+                'resources/css/resultados.css',
                 'resources/js/app.js'
             ],
             refresh: true,
