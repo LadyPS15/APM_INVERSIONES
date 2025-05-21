@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Applicant;
+use App\Models\ScrumEvaluation;
 use App\Models\Career;
 use App\Models\ProgrammingLanguage;
 use App\Models\Specialization;
@@ -93,20 +94,132 @@ class ApplicantController extends Controller
         }
     }
 
+    // Mostrar formulario preguntas 1-5
     public function evaluacionScrum(Applicant $applicant)
     {
         return view('examscrum.evaluacion', compact('applicant'));
     }
 
+    // Guardar respuestas preguntas 1-5 y redirigir a preguntas 6-10
     public function guardarEvaluacionScrum(Request $request, Applicant $applicant)
     {
-        // Aquí agregarás lógica para guardar respuestas y calcular puntaje
+        $request->validate([
+            'p1' => 'required|array',
+            'p2' => 'required|array',
+            'p3' => 'required|array',
+            'p4' => 'required|array',
+            'p5' => 'required|array',
+        ]);
+
+        $scrumEval = $applicant->scrumEvaluation ?? new ScrumEvaluation();
+        $scrumEval->applicant_id = $applicant->id;
+        $scrumEval->answers_part1 = $request->only(['p1', 'p2', 'p3', 'p4', 'p5']);
+        $scrumEval->save();
+
+        return redirect()->route('evaluacion.scrum2', ['applicant' => $applicant->id]);
+    }
+
+    // Mostrar formulario preguntas 6-10
+    public function evaluacionScrum2(Applicant $applicant)
+    {
+        return view('examscrum.evaluacion2', compact('applicant'));
+    }
+
+    // Guardar respuestas preguntas 6-10, calcular puntaje, predecir rol y mostrar resultados
+    public function guardarEvaluacionScrum2(Request $request, Applicant $applicant)
+    {
+        $request->validate([
+            'p6' => 'required|array',
+            'p7' => 'required|array',
+            'p8' => 'required|array',
+            'p9' => 'required|array',
+            'p10' => 'required|array',
+        ]);
+
+        $scrumEval = $applicant->scrumEvaluation ?? new ScrumEvaluation();
+        $scrumEval->applicant_id = $applicant->id;
+        $scrumEval->answers_part2 = $request->only(['p6', 'p7', 'p8', 'p9', 'p10']);
+
+        // Calcular puntaje total
+        $score = $this->calcularPuntaje($scrumEval);
+
+        // Predecir rol Scrum
+        $predictedRole = $this->predecirRolScrum($scrumEval);
+
+        $scrumEval->score = $score;
+        $scrumEval->predicted_role = $predictedRole;
+        $scrumEval->save();
+
+        // Actualizar Applicant con puntaje y rol
+        $applicant->scrum_score = $score;
+        $applicant->rol_principal = $predictedRole;
+        $applicant->save();
+
         return redirect()->route('resultado.scrum', ['applicant' => $applicant->id]);
     }
 
+    // Mostrar resultados de evaluación Scrum
     public function resultadoScrum(Applicant $applicant)
     {
-        return view('results.resultado_scrum', compact('applicant'));
+        $scrumEval = $applicant->scrumEvaluation;
+        $scrum_score = $scrumEval ? $scrumEval->score : 0;
+
+        return view('results.resultado_scrum', compact('applicant', 'scrum_score'));
+    }
+
+    // Método para calcular puntaje total basado en respuestas
+    protected function calcularPuntaje(ScrumEvaluation $eval)
+    {
+        $score = 0;
+        $valores = [1 => 0.5, 2 => 1, 3 => 2]; // valor por cada respuesta
+
+        $part1 = $eval->answers_part1 ?? [];
+        $part2 = $eval->answers_part2 ?? [];
+
+        foreach (array_merge($part1, $part2) as $preguntas) {
+            foreach ($preguntas as $respuesta) {
+                if (isset($valores[$respuesta])) {
+                    $score += $valores[$respuesta];
+                }
+            }
+        }
+
+        // Normalizar puntaje máximo 10
+        return round(min($score, 40) / 40 * 10, 1);
+    }
+
+    // Método para predecir rol Scrum basado en respuestas
+    protected function predecirRolScrum(ScrumEvaluation $eval)
+    {
+        $part1 = $eval->answers_part1 ?? [];
+        $part2 = $eval->answers_part2 ?? [];
+
+        // Sumar valores para cada rol
+        $sm = 0; // Scrum Master: preguntas 1,3,5,10
+        foreach (['p1', 'p3', 'p5', 'p10'] as $p) {
+            if (isset($part1[$p])) $sm += array_sum($part1[$p]);
+            if (isset($part2[$p])) $sm += array_sum($part2[$p]);
+        }
+
+        $po = 0; // Product Owner: preguntas 2,4,7,9
+        foreach (['p2', 'p4', 'p7', 'p9'] as $p) {
+            if (isset($part1[$p])) $po += array_sum($part1[$p]);
+            if (isset($part2[$p])) $po += array_sum($part2[$p]);
+        }
+
+        $dev = 0; // Development Team: preguntas 6,8
+        foreach (['p6', 'p8'] as $p) {
+            if (isset($part1[$p])) $dev += array_sum($part1[$p]);
+            if (isset($part2[$p])) $dev += array_sum($part2[$p]);
+        }
+
+        $max = max($sm, $po, $dev);
+
+        if ($max == $sm) return 'Scrum Master';
+        if ($max == $po) return 'Product Owner';
+        if ($max == $dev) return 'Development Team';
+
+        return 'No definido';
     }
 
     public function resultadoGeneral(Applicant $applicant)

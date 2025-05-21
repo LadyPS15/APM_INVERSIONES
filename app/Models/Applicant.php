@@ -47,6 +47,11 @@ class Applicant extends Model
         return $this->belongsTo(ScrumRole::class);
     }
 
+   public function scrumEvaluation()
+    {
+        return $this->hasOne(ScrumEvaluation::class);
+    }
+
 
     // Generar un token de acceso único para el solicitante
     public function generateAccessToken($academicCycle)

@@ -46,28 +46,21 @@ Route::post('/form/formulario_tecnico/{applicant}', [ApplicantController::class,
 Route::get('/form/formulario_metodologia/{applicant}', [ApplicantController::class, 'formularioMetodologia'])->name('form.formularioMetodologia');
 Route::post('/form/formulario_metodologia/{applicant}', [ApplicantController::class, 'guardarFormularioMetodologia'])->name('form.guardarFormularioMetodologia');
 
-// Evaluación Scrum (solo si experiencia_scrum = si)
+
+// Evaluación parte 1 - mostrar y guardar
 Route::get('/evaluacion/{applicant}', [ApplicantController::class, 'evaluacionScrum'])->name('evaluacion.scrum');
 Route::post('/evaluacion/{applicant}', [ApplicantController::class, 'guardarEvaluacionScrum'])->name('evaluacion.guardar');
 
+// Evaluación parte 2 - mostrar y guardar
+Route::get('/evaluacion2/{applicant}', [ApplicantController::class, 'evaluacionScrum2'])->name('evaluacion.scrum2');
+Route::post('/evaluacion2/{applicant}', [ApplicantController::class, 'guardarEvaluacionScrum2'])->name('evaluacion.guardar2');
+
+
 // Resultados
-Route::get('/resultado_scrum/{applicant}', [ApplicantController::class, 'resultadoScrum'])->name('resultado.scrum');
-Route::get('/resultado_general/{applicant}', [ApplicantController::class, 'resultadoGeneral'])->name('resultado.general');
+    Route::get('/resultado_scrum/{applicant}', [ApplicantController::class, 'resultadoScrum'])->name('resultado.scrum');
+    Route::get('/resultado_general/{applicant}', [ApplicantController::class, 'resultadoGeneral'])->name('resultado.general');
 
 
-// Rutas para la evaluación de scrum
-//Route::get('/evaluacion', function () {
-//    return view('examscrum.evaluacion');
-//});
 
-//Route::get('/evaluacion2', function () {
-//    return view('examscrum.evaluacion2');
-//});
-
-
-// Rutas para los resultados
-//Route::get('/resultado_scrum', function () {
-//    return view('results.resultado_scrum');
-//});
 
 

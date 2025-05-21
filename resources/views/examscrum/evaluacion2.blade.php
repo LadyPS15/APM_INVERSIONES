@@ -12,7 +12,8 @@
         <div class="form-card">
             <h1>Evaluacion de Scrum</h1>
 
-            <form>
+            <form method="POST" action="{{ route('evaluacion.guardar2', ['applicant' => $applicant->id]) }}">
+                @csrf
                 <!-- Pregunta 6 -->
                 <div class="question">
                     <h3>¿Qué haces cuando alguien del equipo tiene dificultades con su trabajo?</h3>
@@ -108,10 +109,9 @@
                     </div>
                 </div>
 
-                <div class="buttons">
                     <button type="button" class="btn btn-secondary" onclick="history.back()">Atrás</button>
-                    <a href="/resultado_scrum" class="btn btn-primary">Finalizar Evaluación</a>
-                </div>
+                    <button type="submit" class="btn btn-primary">Finalizar Evaluación</button>
+
             </form>
         </div>
     </div>

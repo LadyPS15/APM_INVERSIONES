@@ -10,27 +10,35 @@
         <h1>¡Evaluación Completada!</h1>
         <p class="subtitle">Aquí están los resultados de tu evaluación</p>
 
-        <hr>
-
-        <div class="section-title">Resumen del Perfil</div>
         <div class="profile-info">
-            <div><strong>Nombre:</strong></div><div>Juan Lopez Perez</div>
-            <div><strong>Correo Electrónico:</strong></div><div>juanlopezperez@gmail.com</div>
-            <div><strong>Carrera:</strong></div><div>Ingeniería de Software</div>
-            <div><strong>Ciclo Académico:</strong></div><div>5° Semestre</div>
-            <div><strong>Especialización:</strong></div><div>Backend</div>
-            <div><strong>Lenguaje de Programación:</strong></div><div>Java, Python, React, PHP</div>
-            <div><strong>Horarios Disponibles:</strong></div><div>08:00 AM a 13:00 PM</div>
+            <p><strong>Nombre:</strong> {{ $applicant->full_name }}</p>
+            <p><strong>Correo Electrónico:</strong> {{ $applicant->email }}</p>
+            <p><strong>Carrera:</strong> {{ $applicant->career->name }}</p>
+            <p><strong>Ciclo Académico:</strong> {{ $applicant->academic_cycle }}</p>
+            <p><strong>Especialización:</strong> {{ optional($applicant->specialization)->name }}</p>
+            <p><strong>Lenguajes de Programación:</strong> {{ $applicant->programming_languages }}</p>
+            <p><strong>Disponibilidad:</strong> {{ $applicant->availability }}</p>
         </div>
 
         <div class="score-section">
             <div class="section-title">Puntuación General como Practicante</div>
-            <p>Puntaje Total: <span>4.0 / 5.0</span> (Muy Bueno)</p>
+            <p>Puntaje Total: <span>{{ $scrum_score }} / 10.0</span> 
+                @if ($scrum_score >= 8)
+                    (Excelente)
+                @elseif ($scrum_score >= 6)
+                    (Muy Bueno)
+                @elseif ($scrum_score >= 4)
+                    (Bueno)
+                @else
+                    (Regular)
+                @endif
+            </p>
 
-            <div class="role-box">Asignación de Rol: Scrum Master</div>
-
-            <p class="extra-score">Puntaje de Evaluación Scrum: 08/10 puntos</p>
+            <div class="role-box">
+                Asignación de Rol: {{ $applicant->rol_principal ?? 'No asignado' }}
+            </div>
         </div>
-    </div>
-</body>
+        <div class="footer">
+            <p>Fecha de evaluación: {{ $applicant->created_at->format('d/m/Y') }}</p>
+    </body>
 </html>
