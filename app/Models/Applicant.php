@@ -16,15 +16,16 @@ class Applicant extends Model
         'academic_cycle',
         'access_token',
         'specialization_id',
+        'programming_languages',
+        'availability',
         'schedule_id',
         'scrum_role_id',
         'otros_lenguajes',
         'experiencia_scrum',
         'tiempo_experiencia',
         'tipo_proyectos',
+        'rol_principal',
     ];
-
-    // Relaciones
 
     public function career()
     {
@@ -36,7 +37,6 @@ class Applicant extends Model
         return $this->belongsTo(Specialization::class);
     }
 
-
     public function schedule()
     {
         return $this->belongsTo(Schedule::class);
@@ -47,20 +47,6 @@ class Applicant extends Model
         return $this->belongsTo(ScrumRole::class);
     }
 
-    public function applications()
-    {
-        return $this->hasMany(Application::class);
-    }
-
-    public function resourceAccesses()
-    {
-        return $this->hasMany(ResourceAccess::class);
-    }
-
-    public function activityLogs()
-    {
-        return $this->morphMany(ActivityLog::class, 'user');
-    }
 
     // Generar un token de acceso único para el solicitante
     public function generateAccessToken($academicCycle)

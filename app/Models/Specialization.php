@@ -14,11 +14,6 @@ class Specialization extends Model
         'description',
     ];
 
-    public function applications()
-    {
-        return $this->hasMany(Application::class);
-    }
-
     public function roleRequirements()
     {
         return $this->hasMany(RoleRequirement::class, 'preferred_specialization_id');

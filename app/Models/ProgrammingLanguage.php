@@ -15,7 +15,7 @@ class ProgrammingLanguage extends Model
 
     public function applications()
     {
-        return $this->belongsToMany(Application::class, 'application_programming_languages')
+        return $this->belongsToMany(Applicant::class, 'applicaticant')
             ->withPivot('proficiency_level');
     }
 }

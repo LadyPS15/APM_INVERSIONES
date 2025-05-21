@@ -14,9 +14,5 @@ class Career extends Model
         'description',
     ];
 
-    public function applications()
-    {
-        return $this->hasMany(Application::class);
-    }
 }
 

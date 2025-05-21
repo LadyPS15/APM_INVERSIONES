@@ -9,26 +9,25 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+     public function up(): void
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
             $table->string('full_name', 150);
             $table->string('email', 150)->unique();
-
-            // Claves foráneas como unsignedBigInteger
-            $table->unsignedBigInteger('career_id');  // Clave foránea para career_id
+            $table->unsignedBigInteger('career_id');
             $table->integer('academic_cycle');
             $table->string('access_token', 150)->nullable()->unique();
-            $table->unsignedBigInteger('specialization_id')->nullable(); // Clave foránea para specialization_id
-            $table->unsignedBigInteger('schedule_id')->nullable();       // Clave foránea para schedule_id
-            $table->unsignedBigInteger('scrum_role_id')->nullable();     // Clave foránea para scrum_role_id
-
+            $table->unsignedBigInteger('specialization_id')->nullable();
+            $table->string('programming_languages')->nullable();
+            $table->string('availability')->nullable();
+            $table->unsignedBigInteger('schedule_id')->nullable();
+            $table->unsignedBigInteger('scrum_role_id')->nullable();
             $table->string('otros_lenguajes')->nullable();
             $table->string('experiencia_scrum')->nullable();
             $table->string('tiempo_experiencia')->nullable();
             $table->text('tipo_proyectos')->nullable();
-
+            $table->string('rol_principal')->nullable();
             $table->timestamps();
 
             // Foreign keys

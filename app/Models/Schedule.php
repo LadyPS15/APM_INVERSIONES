@@ -13,8 +13,8 @@ class Schedule extends Model
         'description',
     ];
 
-    public function applications()
+    public function applicant()
     {
-        return $this->hasMany(Application::class);
+        return $this->hasMany(Applicant::class);
     }
 }

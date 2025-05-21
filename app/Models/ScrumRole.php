@@ -14,15 +14,7 @@ class ScrumRole extends Model
         'description',
     ];
 
-    public function applicationsPreviousRole()
-    {
-        return $this->hasMany(Application::class, 'previous_role_id');
-    }
 
-    public function applicationsAssignedRole()
-    {
-        return $this->hasMany(Application::class, 'assigned_role_id');
-    }
 
     public function roleRequirements()
     {
