@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\educational_institutions;
+use App\Models\EducationalInstitution;
 
 use Illuminate\Http\Request;
 
-class EducationalInstitutionsController extends Controller
+class EducationalInstitutionController extends Controller
 {
     public function index()
     {
-        $institutions = educational_institutions::all();
-        return response()->json($institutions);
+        // Aqui no quiero que liste los datos de la tabla solo que se use los
+        // datos de la tabla para el formulario
+        //$institutions = EducationalInstitution::all();
+        //return view('institutions.index', compact('institutions')); 
     }
 }

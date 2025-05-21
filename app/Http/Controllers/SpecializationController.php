@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 class SpecializationController extends Controller
 {
     public function index()
-    {
-        $specializations = Specialization::all();
-        return response()->json($specializations);
-    }
+{
+    // Aquí no quiero que liste los datos de la tabla, solo que se use los
+    // datos de la tabla para el formulario
+    //$specializations = Specialization::all();
+    //return view('specializations.index', compact('specializations'));
+}
+
 }

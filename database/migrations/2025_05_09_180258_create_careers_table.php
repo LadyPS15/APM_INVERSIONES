@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('careers', function (Blueprint $table) {
-            $table->id();
+            $table->id();  // Esto crea un campo 'id' de tipo unsignedBigInteger automáticamente
             $table->string('name', 100);
             $table->text('description')->nullable();
             $table->timestamps(); // created_at y updated_at

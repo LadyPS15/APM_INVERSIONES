@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Evaluación Completada</title>
-      @vite('resources/css/resultagen.css')
+      @vite('resources/css/resultalgen.css')
   
 </head>
 <body>
@@ -14,20 +14,15 @@
         <hr>
 
         <div class="section-title">Resumen del Perfil</div>
-        <div class="profile-info">
-            <div>Nombre:</div><div>Juan Lopez Perez</div>
-            <div>Correo Electrónico:</div><div>juan.lopezperez@gmail.com</div>
-            <div>Carrera:</div><div>Ingeniería de Software</div>
-            <div>Ciclo Académico:</div><div>5° Semestre</div>
-            <div>Especialización:</div><div>Backend</div>
-            <div>Lenguaje de Programación:</div><div>Java, Python</div>
-            <div>Horarios Disponibles:</div><div>08:00 AM a 13:00 PM</div>
-        </div>
+        <h1>Resultado General</h1>
+            <p>Gracias por tu interés. No has tenido experiencia en metodologías Scrum, por lo que no se realizará evaluación.</p>
+            <p>Nombre: {{ $applicant->full_name }}</p>
+            <p>Correo: {{ $applicant->email }}</p>
+            <p>Carrera: {{ $applicant->career->name }}</p>
+            <p>Ciclo: {{ $applicant->academic_cycle }}</p>
+            <p>Área de Enfoque: {{ $applicant->specialization->name }}</p>
+            <p>Lenguajes de Programación: {{ $applicant->programming_languages }}</p>
+            <p>Disponibilidad Horaria: {{ $applicant->availability }}</p>
 
-        <div class="score">
-            Puntuación General como Practicante:<br>
-            Puntaje Total: <span>4.0 / 5.0</span> (Muy Bueno)
-        </div>
-    </div>
 </body>
 </html>

@@ -17,24 +17,23 @@
             <h2>Experiencia en Metodología Agiles</h2>
             <div class="divider"></div>
 
-            <form action="#" method="POST">
+            <form action="{{ route('form.guardarFormularioMetodologia', ['applicant' => $applicant->id]) }}" method="POST">
                 @csrf
 
                 <div class="form-group">
                     <label>¿Tienes experiencia en metodologías Scrum?</label>
                     <div class="radio-group">
                         <div class="radio-item">
-                            <input type="radio" id="experiencia_si" name="experiencia_scrum" value="si">
+                            <input type="radio" id="experiencia_si" name="experiencia_scrum" value="si" required>
                             <label for="experiencia_si">Sí</label>
                         </div>
                         <div class="radio-item">
-                            <input type="radio" id="experiencia_no" name="experiencia_scrum" value="no">
+                            <input type="radio" id="experiencia_no" name="experiencia_scrum" value="no" required>
                             <label for="experiencia_no">No</label>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
+                <div class="form-group" id="tiempo_experiencia_container">
                     <label>Tiempo de experiencia</label>
                     <div class="radio-group">
                         <div class="radio-item">
@@ -55,29 +54,74 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
+                <div class="form-group" id="rol_principal_container">
                     <label for="rol_principal">Rol principal desempeñado</label>
-                    <select id="rol_principal" name="rol_principal" class="form-control">
+                    <select id="rol_principal" name="rol_principal" class="form-control" disabled>
                         <option value="" selected disabled>Seleccione una opción</option>
-                        <option value="scrum_master">Scrum Master</option>
-                        <option value="product_owner">Product Owner</option>
-                        <option value="desarrollador">Desarrollador</option>
-                        <option value="tester">Tester</option>
-                        <option value="otro">Otro</option>
+                        @foreach($scrumRoles as $role)
+                            <option value="{{ $role->name }}" {{ $applicant->rol_principal == $role->name ? 'selected' : '' }}>
+                                {{ $role->name }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="tipo_proyectos_container">
                     <label for="tipo_proyectos">¿En qué tipo de proyectos has aplicado metodologías Scrum?</label>
-                    <textarea id="tipo_proyectos" name="tipo_proyectos" class="form-control" rows="4"></textarea>
+                    <textarea id="tipo_proyectos" name="tipo_proyectos" class="form-control" rows="4" disabled></textarea>
                 </div>
 
-                <div class="buttons-container">
-                    <button type="submit" class="btn btn-primary">Enviar Registro</button>
+
+                            <div class="buttons-container">
+                    <button type="submit" class="btn btn-primary">Continuar</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
 </html>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const experienciaSi = document.getElementById('experiencia_si');
+    const experienciaNo = document.getElementById('experiencia_no');
+
+    const tiempoContainer = document.getElementById('tiempo_experiencia_container');
+    const rolPrincipalContainer = document.getElementById('rol_principal_container');
+    const tipoProyectosContainer = document.getElementById('tipo_proyectos_container');
+
+    const rolPrincipalSelect = document.getElementById('rol_principal');
+    const tipoProyectosTextarea = document.getElementById('tipo_proyectos');
+    const tiempoRadios = tiempoContainer.querySelectorAll('input');
+
+    function toggleCampos() {
+        if (experienciaSi.checked) {
+            // Mostrar y habilitar
+            tiempoContainer.style.display = 'block';
+            tiempoRadios.forEach(input => input.disabled = false);
+
+            rolPrincipalSelect.disabled = false;
+            tipoProyectosTextarea.disabled = false;
+        } else {
+            // Ocultar y deshabilitar + limpiar selección
+            tiempoContainer.style.display = 'none';
+            tiempoRadios.forEach(input => {
+                input.disabled = true;
+                input.checked = false;
+            });
+
+            rolPrincipalSelect.disabled = true;
+            rolPrincipalSelect.value = "";
+
+            tipoProyectosTextarea.disabled = true;
+            tipoProyectosTextarea.value = "";
+        }
+    }
+
+    experienciaSi.addEventListener('change', toggleCampos);
+    experienciaNo.addEventListener('change', toggleCampos);
+
+    toggleCampos(); // Estado inicial al cargar la página
+});
+
+</script>
