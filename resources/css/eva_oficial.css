@@ -1,4 +1,3 @@
-
 /* Estilos generales */
 * {
     margin: 0;
@@ -53,15 +52,35 @@ h1::after {
     margin-bottom: 40px;
 }
 
+.text-input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Para incluir el padding y el border en el ancho total */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    height: 50px;
+    /* Altura mínima para el textarea */
+    resize: vertical;
+    margin-bottom: -20px;
+    /* Permite redimensionar verticalmente */
+}
+
+/* .question {
+    margin-bottom: 50px;
+} */
+
 /* Estilos para las preguntas */
 .question h3,
 .form-group label {
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: block;
 }
 
@@ -109,10 +128,11 @@ h1::after {
 .buttons,
 .buttons-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 20px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
+
 
 .btn {
     width: 227px;

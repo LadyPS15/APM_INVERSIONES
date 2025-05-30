@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\SpecializationController;
 use App\Http\Controllers\CareersController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
@@ -16,6 +18,8 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 // Dashboard protegido
 Route::middleware('auth')->group(function () {
     Route::get('/reclutador/dashboard', function () {
@@ -25,6 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/reclutador/credenciales', function () {
         return view('reclutador.credenciales');
     })->name('reclutador.credenciales');
+
+    // dashboard del practicante
+    Route::get('/practicante/dashboard', function () {
+        return view('practicante.dashboard');
+    })->name('practicante.dashboard');
 });
 
 
@@ -57,10 +66,33 @@ Route::post('/evaluacion2/{applicant}', [ApplicantController::class, 'guardarEva
 
 
 // Resultados
-    Route::get('/resultado_scrum/{applicant}', [ApplicantController::class, 'resultadoScrum'])->name('resultado.scrum');
-    Route::get('/resultado_general/{applicant}', [ApplicantController::class, 'resultadoGeneral'])->name('resultado.general');
+Route::get('/resultado_scrum/{applicant}', [ApplicantController::class, 'resultadoScrum'])->name('resultado.scrum');
+Route::get('/resultado_general/{applicant}', [ApplicantController::class, 'resultadoGeneral'])->name('resultado.general');
 
 
+// Dashboard reclutador
+Route::get('/reclutador/dashboard', [ApplicantController::class, 'index'])->name('reclutador.dashboard');
+// Aceptar postulante
+Route::post('/applicants/{id}/accept', [ApplicantController::class, 'accept'])->name('applicants.accept');
 
+// Eliminar postulante
+Route::delete('/applicants/{id}', [ApplicantController::class, 'destroy'])->name('applicants.destroy');
 
+Route::get('/reclutador/credenciales', [UserController::class, 'index'])->name('reclutador.credenciales');
 
+Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+// Mostrar perfil
+Route::get('/perfil', [ProfileController::class, 'show'])->name('perfil.show')->middleware('auth');
+
+// Actualizar perfil
+Route::post('/perfil/update', [ProfileController::class, 'update'])->name('perfil.update')->middleware('auth');
+
+// practicante dashboard
+// Route::get('/practicante/dashboard', [ApplicantController::class, 'index'])->name('practicante.dashboard');
+
+Route::get('/practicante/recuroscrum', [ApplicantController::class, 'recuroScrum'])->name('practicante.recursoscrum');
+
+Route::get('/practicante/comunidad', [ApplicantController::class, 'comunidad'])->name('practicante.comunidad');
+// Mostrar perfil del practicante
+Route::get('/practicante/perfil', [ProfileController::class, 'perfilPracticante'])->name('practicante.perfil')->middleware('auth');

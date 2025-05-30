@@ -10,6 +10,19 @@
     <div class="container">
         <div class="form-container">
             <h2 class="section-title">Información Personal</h2>
+            {{-- AÑADE ESTO PARA MOSTRAR ERRORES DE VALIDACIÓN --}}
+            @if ($errors->any())
+                <div class="alert alert-danger"
+                    style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            {{-- FIN DE LOS ERRORES DE VALIDACIÓN --}}
+
             <form method="POST" action="{{ route('form.formulario.store') }}">
                 @csrf
                 

@@ -22,7 +22,6 @@
             <a href="{{ route('practicante.comunidad') }}">comunidad</a>
             <a href="{{ route('practicante.perfil') }}">Mi Perfil</a>
         </div>
-        <!-- Botón de logout mejorado -->
         <form action="{{ route('logout') }}" method="POST" class="logout-form">
             @csrf
             <button type="submit" class="logout-btn">
@@ -44,68 +43,56 @@
                 {{ session('success') }}
             </div>
         @endif
-        <h3>¡Recursos para Scrum Master!</h3>
-        <br><br>
-        <h3>Documentación</h3>
-        <p>Descarga recursos utiles para tu rol de Scrum Master</p>
+        <h3>¡Comunidad Agil!</h3>
         <table>
             <thead>
                 <tr>
-                    <th>Título</th>
+                    <th>Canales</th>
                     <th>Acceso</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="tdtext">La Guía Definitiva de Scrum: Las Reglas del Juego
-                        <small>La guia definitiva de Scum por Schwaber y Stherland </small>
+                    <td>Comunidad de Scrum Master- Linkedin
                     </td>
                     <td>
-                        {{-- <a href="https://www.scrum.org/resources/scrum-guide" target="_blank" style="cursor: pointer">
-                            Descargar PDF
-                        </a> --}}
-                        {{-- Asume que el PDF está en storage/app/public/recursos_scrum/La_Guia_Definitiva_de_Scrum.pdf --}}
-                        <a href="{{ asset('storage/recursos_scrum/La_Guia_Definitiva_de_Scrum.pdf') }}"
-                            download="La_Guia_Definitiva_de_Scrum.pdf" style="cursor: pointer">
-                            Descargar PDF
+                        <a href="https://www.scrum.org/resources/scrum-guide" target="_blank" style="cursor: pointer">
+                            Ver mas
                         </a>
                     </td>
                 </tr>
                 <tr>
-                    <td>Guia Scrum 2024 European Scrum
-                        <small>La guia definitiva de Scum por Schwaber y Stherland </small>
+                    <td>Serie de videos Scrum en Accion
                     </td>
                     <td>
-                        <a href="{{ asset('storage/recursos_scrum/La_Guia_Definitiva_de_Scrum.pdf') }}"
-                            download="La_Guia_Definitiva_de_Scrum.pdf" style="cursor: pointer">
-                            Descargar PDF
+                        <a href="https://www.scrum.org/resources/scrum-guide" target="_blank" style="cursor: pointer">
+                            Ver mas
                         </a>
                     </td>
                 </tr>
                 <tr>
-                    <td>Guia - Profesional Scrum Master
-                        <small>Guia especifica para Scrum Masters</small>
+                    <td>Comunidad de Scrum Master - Linkedin
                     </td>
                     <td>
-                        <a href="{{ asset('storage/recursos_scrum/La_Guia_Definitiva_de_Scrum.pdf') }}"
-                            download="La_Guia_Definitiva_de_Scrum.pdf" style="cursor: pointer">
-                            Descargar PDF
+                        <a href="https://www.scrum.org/resources/scrum-guide" target="_blank" style="cursor: pointer">
+                            Ver mas
                         </a>
                     </td>
                 </tr>
                 <tr>
-                    <td>Scrum Master de Scrum Manager
-                        <small>Conjunto de plantillas para facilitar las reuniones</small>
+                    <td>Comunidad de Metodologia Agil - Linkedin
                     </td>
                     <td>
-                        <a href="{{ asset('storage/recursos_scrum/La_Guia_Definitiva_de_Scrum.pdf') }}"
-                            download="La_Guia_Definitiva_de_Scrum.pdf" style="cursor: pointer">
-                            Descargar PDF
+                        <a href="https://www.scrum.org/resources/scrum-guide" target="_blank" style="cursor: pointer">
+                            Ver mas
                         </a>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <!-- Modal para mostrar resultados -->
+        {{-- @include('practicante.modal') --}}
 
     </div>
 </body>

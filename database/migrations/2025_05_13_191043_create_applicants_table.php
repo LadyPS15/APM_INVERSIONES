@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('tiempo_experiencia')->nullable();
             $table->text('tipo_proyectos')->nullable();
             $table->string('rol_principal')->nullable();
+            $table->float('scrum_score')->nullable();
+            $table->string('status')->nullable()->default('pendiente');
             $table->timestamps();
 
             // Foreign keys

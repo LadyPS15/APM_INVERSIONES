@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f5f7fa;
     padding: 40px;
@@ -51,4 +51,157 @@ hr {
 
 .score span {
     color: green;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px;
+    margin: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #1e3a8a;
+    /* Dark blue color */
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #1d026d;
+    margin: 20px auto 30px auto;
+    width: 100%;
+}
+
+.section-title {
+    color: #003087;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.profile-info {
+    width: 90%;
+    margin: auto;
+    /* margin-bottom: 10px; */
+    /* padding-left: 5%; */
+}
+
+.profile-info p {
+    margin-bottom: 8px;
+    line-height: 1;
+    color: #555;
+    display: flex;
+}
+
+.profile-info strong {
+    display: inline-block;
+    color: #272b3a;
+    font-weight: bold;
+}
+
+.profile-info span {
+    flex-grow: 1;
+    color: #555;
+    text-align: right;
+}
+
+.score-section {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.score-section .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e2a5a;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.modal-content p.total-score {
+    text-align: left;
+    padding-left: 10%;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.modal-content p.total-score span {
+    font-weight: bold;
+    color: #1e2a5a;
+}
+
+.role-box {
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    color: #1e2a5a;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    text-align: right;
+    margin-top: 30px;
+    color: #999;
+    font-size: 13px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.scrum-evaluation-score {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
 }

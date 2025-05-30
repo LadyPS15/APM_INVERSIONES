@@ -16,6 +16,7 @@ class Applicant extends Model
         'academic_cycle',
         'access_token',
         'specialization_id',
+        'other_specialization',
         'programming_languages',
         'availability',
         'schedule_id',
@@ -25,6 +26,8 @@ class Applicant extends Model
         'tiempo_experiencia',
         'tipo_proyectos',
         'rol_principal',
+        'scrum_score',
+        'status',
     ];
 
     public function career()
