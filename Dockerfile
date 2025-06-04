@@ -30,5 +30,16 @@ RUN chown -R www-data:www-data /var/www/html
 # Exponer el puerto 8080 para que sea accesible
 EXPOSE 8080
 
+# Instalar dependencias de composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Ejecutar los comandos de Laravel (cache, rutas, vistas, etc.)
+RUN composer install --no-dev --optimize-autoloader \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache \
+    && php artisan migrate --force \
+    && php artisan db:seed --force
+
 # Comando para ejecutar Apache en primer plano
 CMD ["apache2-foreground"]
