@@ -29,6 +29,7 @@ return new class extends Migration
             $table->text('tipo_proyectos')->nullable();
             $table->string('rol_principal')->nullable();
             $table->float('scrum_score')->nullable();
+            $table->string('other_specialization')->nullable();
             $table->string('status')->nullable()->default('pendiente');
             $table->timestamps();
 
